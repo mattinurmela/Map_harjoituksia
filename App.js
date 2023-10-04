@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import Map from './screens/Map';
-import { StyleSheet, View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import MyStatusBar from './components/MyStatusBar';
-import { StatusBar } from 'expo-status-bar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Settings from './screens/Settings';
+import { Platform } from 'react-native';
+import Constants from 'expo-constants';
 
 const settings = {
   backgroundColor: '#00a484',
-  title:'map demo'
+  title:'map demo',
+  title1:'Settings'
 }
 
 export default function App() {
@@ -19,7 +21,7 @@ export default function App() {
 
   return (
     <>
-      <MyStatusBar backgroundColor="#490295" barStyle="ligth-content" />
+      <MyStatusBar backgroundColor="#49D295" barStyle="light-content" />
       <View style={styles.container}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="map" screenOptions={{headerShown: false}}>
@@ -38,7 +40,7 @@ export default function App() {
               <Settings 
                 {...props}
                 backgroundColor={settings.backgroundColor}
-                title={settings.backgroundColor}
+                title={settings.title1}
                 setMapType={setMapType}
               />
             }
@@ -52,7 +54,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight,
+    paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0,
     flex: 1
   },
 

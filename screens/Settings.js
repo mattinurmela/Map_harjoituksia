@@ -1,8 +1,9 @@
 import { Text } from 'react-native'
 import React from 'react'
 import NavigateBackApplication from '../components/NavigateBackApplication'
+import { useEffect } from 'react'
 
-export default function Settings(...props) {
+export default function Settings({...props}) {
 
     useEffect(() => {
       props.setMapType('satellite')
