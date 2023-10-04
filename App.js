@@ -25,7 +25,7 @@ export default function App() {
       <View style={styles.container}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="map" screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Home">
+            <Stack.Screen name="map">
               {(props) =>
                 <Map
                   {...props}
@@ -41,6 +41,7 @@ export default function App() {
                 {...props}
                 backgroundColor={settings.backgroundColor}
                 title={settings.title1}
+                mapType={mapType}
                 setMapType={setMapType}
               />
             }
